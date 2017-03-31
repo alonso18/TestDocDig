@@ -49,7 +49,7 @@ class SucursalesController extends Controller
      */
     public function store(Request $request)
     {
-         $sucursal = new Sucursal;
+        $sucursal = new Sucursal;
 
         $sucursal->nombre_sucursal = $request->nombre_sucursal;
         $sucursal->nombre_calle = $request->nombre_calle;
@@ -60,9 +60,37 @@ class SucursalesController extends Controller
         $sucursal->ciudad = $request->ciudad;
         $sucursal->pais = $request->pais;
         $sucursal->user_id = Auth::user()->id;
+        $numero_empleado = $request->count;
 
+        
+        
+        /*
+       if($bandera)
+        {
+            return redirect("/empleados");
+        }
+*/
         if($sucursal->save())
         {
+            if($numero_empleado > 0)
+            {
+                $bandera = false;
+                $cont = 1;
+                $empleado = new Empleado;
+
+                while ($cont <= $request->count) {
+                    $empleado = new Empleado;
+                    $empleado->nombre_empleado = $request->nombre_empleado[$cont];
+                    $empleado->rfc = $request->rfc[$cont];
+                    $empleado->puesto = $request->puesto[$cont];
+                    $empleado->sucursal_id = $sucursal->id;
+                    if($empleado->save())
+                    {
+                        $bandera = true;
+                        $cont++;
+                    }
+                }
+            }
             return redirect("/sucursales");
         }
         else

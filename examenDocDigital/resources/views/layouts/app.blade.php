@@ -50,6 +50,69 @@ nav ul li a
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
 <script>
  var cont = 0;
+
+function llenarFormasEmpleadoSucursal() {
+    var num_emp = document.getElementById('IdEmp').value;
+    if(num_emp == ""){
+        document.getElementById('IdEmp').style.borderColor = "red";
+        return false;
+    }
+    else
+    {
+        document.getElementById('IdEmp').style.borderColor = "green";
+        var container = document.getElementById("grid_employees");
+        //var grid = document.getElementById("forma_empleados");
+        //var content=grid.innerHTML;
+        if(num_emp > 0 && num_emp <= 5)
+        {
+            for(var i = 1; i <= num_emp; i++)
+            {
+                if(++cont <= 5)
+                {
+                    //container.appendChild(document.createTextNode("Member " + (i+1)));
+                    // Create an <input> element, set its type and name attributes
+                    var input = document.createElement("input");
+                    input.type = "text";
+                    input.name = "nombre_empleado["+i+"]";
+                    input.placeholder = "Nombre";
+                    input.className = "form-control";
+
+                    $(container)
+                    .append('<br>')
+                    .append('<h2>Datos del empleado</h2>')
+                    .append(input);
+
+                    var input = document.createElement("input");
+                    input.type = "text";
+                    input.name = "rfc["+i+"]";
+                    input.placeholder = "RFC";
+                    input.className = "form-control";
+
+                    $(container)
+                    .append('<br>')
+                    .append(input);
+
+                    var input = document.createElement("input");
+                    input.type = "text";
+                    input.name = "puesto["+i+"]";
+                    input.placeholder = "Puesto";
+                    input.className = "form-control";
+
+                    $(container)
+                    .append('<br>')
+                    .append(input);
+                   
+                }
+            }    
+        }
+    }
+}
+
+
+
+
+
+
 function llenarFormasEmpleado() {
     var num_emp = document.getElementById('IdEmp').value;
     if(num_emp == ""){
@@ -60,22 +123,21 @@ function llenarFormasEmpleado() {
     {
         document.getElementById('IdEmp').style.borderColor = "green";
         var container = document.getElementById("grid_employees");
-    var grid = document.getElementById("forma_empleados");
-    var content=grid.innerHTML;
-    if(num_emp > 0 && num_emp <= 4)
-    {
-        for(var i = 1; i <= num_emp; i++)
+        var grid = document.getElementById("forma_empleados");
+        var content=grid.innerHTML;
+        if(num_emp > 0 && num_emp <= 4)
         {
-            if(++cont <= 4)
+            for(var i = 1; i <= num_emp; i++)
             {
-                $(container).append('<br>')
-                .append(content);
-               
-            }
-        }    
+                if(++cont <= 4)
+                {
+                    $(container).append('<br>')
+                    .append(content);
+                   
+                }
+            }    
+        }
     }
-    }
-    
 }
 
 

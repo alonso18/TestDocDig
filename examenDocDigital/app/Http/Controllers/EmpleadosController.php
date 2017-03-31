@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Http\Requests\EmpleadoRequest;
+
 use App\Empleado;
 
 use App\Sucursal;
@@ -29,15 +31,6 @@ class EmpleadosController extends Controller
             'empleados' => $empleados,
             'sucursal' => $sucursal
             ));
-    }
-
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'nombre_empleado' => 'required|max:255',
-            'rfc' => 'required|email|max:255|unique:users',
-            'puesto' => 'required|max:255',
-        ]);
     }
 
     /**

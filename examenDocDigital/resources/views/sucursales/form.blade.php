@@ -24,8 +24,26 @@
 	<div class="form-group">
 		{{ Form::text('pais', $sucursal->pais, array('class' => 'form-control', 'required' => '', 'placeholder'=>'Pais')) }}
 	</div>
+	<br>
+
+
+	
+	<div class="form-group">
+		<input id="IdEmp" type="number" class="form-control" placeholder="Empleados a registrar" name="count"/>
+	</div>
+	 <div class="form-group text-right">
+		<input type="button" class="btn btn-success" value="Agregar" onclick="llenarFormasEmpleadoSucursal();"/>
+	</div>
+	<div id="grid_employees" >
+		
+	</div>
+
+
+	<br>
 	<div class="form-group text-right">
 		<a href="{{url('/sucursales')}}">Regresar al inicio</a>
 		<input type="submit" value="Enviar" class="btn btn-success">
 	</div>
 	{!! Form::close() !!}
+
+	
