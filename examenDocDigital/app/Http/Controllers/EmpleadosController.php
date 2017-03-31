@@ -70,7 +70,7 @@ class EmpleadosController extends Controller
         //$tracks = $request->json()->all();
         //dd($request->all());
         $bandera = false;
-        $cont = 0;
+        $cont = 1;
         $empleado = new Empleado;
 
         while ($cont <= $request->count) {

@@ -4,7 +4,7 @@
 <div class="container white">
 	<h1>Editar sucursal</h1>
 	<!--Formulario-->
-	@include('sucursales.form', ['sucursal' => $sucursal, 'url' => '/sucursales/'.$sucursal->id, 'method' => 'PATCH'])
+	@include('sucursales.formEdit', ['sucursal' => $sucursal, 'url' => '/sucursales/'.$sucursal->id, 'method' => 'PATCH'])
 </div>
 
 <div class="big-padding text-center blue-grey white-text">

@@ -5,12 +5,13 @@
 </div>
 <div class="container">
 <nav>
-<ul>
-	<li><a href="{{url('/sucursales/create')}}">Registrar Sucursal</a></li>
-	<li><a href="{{url('/empleados/create')}}">Registrar Empleados de la Sucursal</a></li>
-</ul>
+	<ul>
+		<li><a href="{{url('/sucursales/create')}}">Registrar Sucursal</a></li>
+		<li><a href="{{url('/empleados/create')}}">Registrar Empleados de la Sucursal</a></li>
+	</ul>
 </nav>
-	<table class="table table-bordered">
+<div class="table-responsive">
+	<table class="table  table-bordered">
 		<thead>
 			<tr>
 				<td>Nombre sucursal</td>
@@ -48,7 +49,7 @@
 			<h2>No hay sucursales registradas</h2>
 			@endif
 		</tbody>
-
 	</table>
+	</div>
 </div>
 @endsection

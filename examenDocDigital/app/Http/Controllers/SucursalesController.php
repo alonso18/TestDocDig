@@ -54,9 +54,12 @@ class SucursalesController extends Controller
         $sucursal->nombre_sucursal = $request->nombre_sucursal;
         $sucursal->nombre_calle = $request->nombre_calle;
         $sucursal->nombre_colonia = $request->nombre_colonia;
-        $sucursal->numero_exterior = $request->numero_exterior;
-        $sucursal->numero_interior = $request->numero_interior;
-        $sucursal->codigo_postal = $request->codigo_postal;
+        if($request->numero_exterior != null)
+            $sucursal->numero_exterior = $request->numero_exterior;
+        if($request->numero_interior != null)
+            $sucursal->numero_interior = $request->numero_interior;
+        if($request->codigo_postal != null)
+            $sucursal->codigo_postal = $request->codigo_postal;
         $sucursal->ciudad = $request->ciudad;
         $sucursal->pais = $request->pais;
         $sucursal->user_id = Auth::user()->id;
@@ -144,9 +147,12 @@ class SucursalesController extends Controller
         $sucursal->nombre_sucursal = $request->nombre_sucursal;
         $sucursal->nombre_calle = $request->nombre_calle;
         $sucursal->nombre_colonia = $request->nombre_colonia;
-        $sucursal->numero_exterior = $request->numero_exterior;
-        $sucursal->numero_interior = $request->numero_interior;
-        $sucursal->codigo_postal = $request->codigo_postal;
+        if($request->numero_exterior != null)
+            $sucursal->numero_exterior = $request->numero_exterior;
+        if($request->numero_interior != null)
+            $sucursal->numero_interior = $request->numero_interior;
+        if($request->codigo_postal != null)
+            $sucursal->codigo_postal = $request->codigo_postal;
         $sucursal->ciudad = $request->ciudad;
         $sucursal->pais = $request->pais;
 
